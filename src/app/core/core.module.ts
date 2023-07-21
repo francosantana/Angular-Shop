@@ -8,20 +8,26 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './auth/state/auth-reducer';
 import { AuthEffects } from './auth/state/auth-effects';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavbarComponent,
+  ],
   imports: [
     CommonModule,
     StoreModule.forRoot({auth: authReducer}),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([AuthEffects]),
+    MatToolbarModule
   ],
   exports: [
     HttpClientModule,
     StoreModule,
     StoreDevtoolsModule,
-    EffectsModule
+    EffectsModule,
+    NavbarComponent
   ],
   providers: [
     AuthService

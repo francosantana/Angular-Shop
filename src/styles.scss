@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Angular-Website-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$Angular-Website-warn: mat.define-palette(mat.$red-palette);
+
+$primary: (
+ 50: #e96478,
+ 100: #e96478,
+ 200: #e96478,
+ 300: #e96478,
+ 400: #e96478,
+ 500: #e96478,
+ 600: #e96478,
+ 700: #e96478,
+ 800: #e96478,
+ 900: #e96478,
+ contrast: (
+   50: white,
+   100: white,
+   200: white,
+   300: white,
+   400: white,
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white
+ )
+);
+
+$Angular-Website-primary: mat.define-palette($primary);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Angular-Website-theme: mat.define-light-theme((
+  color: (
+    primary: $Angular-Website-primary,
+    accent: $Angular-Website-accent,
+    warn: $Angular-Website-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+$my-typography: mat.define-typography-config();
+@include mat.typography-hierarchy($my-typography);
+@include mat.all-component-themes($Angular-Website-theme);
+
+/* https://colorhunt.co/palette/4d455de96479f5e9cf7db9b6 */
+
+body{
+    background-color: #202040;
+}
+
+h1, h2 ,h3, h4, h5, p{
+  color: #F5E9CF;
+  
+}
+
