@@ -12,12 +12,14 @@ import { AuthEffects } from './auth/state/auth-effects';
 // App Components/Services
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './auth/service/auth.service';
+import { SidenavModule } from './sidenav/sidenav.module';
 
 // Styles Components (MUI)
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
+
+
 
 @NgModule({
   declarations: [
@@ -31,14 +33,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    SidenavModule
   ],
   exports: [
     HttpClientModule,
     StoreModule,
     StoreDevtoolsModule,
     EffectsModule,
-    NavbarComponent
+    NavbarComponent,
+    SidenavModule
   ],
   providers: [
     AuthService
