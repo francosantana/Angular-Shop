@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { LoginAction, User } from '../models/auth-model';
+import { LoginAction, User, ErrorAction } from '../models/auth-model';
 
 export const loginAction = createAction(
     '[Auth] Login',
@@ -15,3 +15,7 @@ export const updateUserAction = createAction(
     props<{user: User | null}>()
 )
 
+export const updateErrorAction = createAction(
+    '[Auth] Error',
+    props<ErrorAction>()
+)

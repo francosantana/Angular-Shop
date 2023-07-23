@@ -1,8 +1,13 @@
+import { HttpErrorResponse } from "@angular/common/http"
 
 //Actions ------- >
 export interface LoginAction{
     username: string,
     password: string
+}
+
+export interface ErrorAction{
+    error: HttpErrorResponse | null
 }
 
 // State  ------->
@@ -18,7 +23,8 @@ export interface User{
 }
 
 export interface AuthState {
-    user: User | null
+    user: User | null,
+    error: HttpErrorResponse | null
 }
 
 export interface RootState {

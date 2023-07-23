@@ -1,7 +1,7 @@
 <div class="container">
     
     <form class="father-form" [formGroup]="form">
-        <h2 class="welcome">Hi, Welcome </h2>
+        <h2 class="center">Hi, Welcome </h2>
         <mat-form-field  class="field">
             <mat-label>Username</mat-label>
             <input matInput formControlName="username" required>
@@ -11,10 +11,14 @@
             <mat-label>Password</mat-label>
             <input matInput  formControlName="password" required>
           </mat-form-field>
+
+          <ng-container *ngIf="$error | async as error">
+            <p style="color: red;" class="center">{{error.error.message}}</p>
+          </ng-container>
     
           <button (click)="submitForm()"  class="submit-button" mat-raised-button color="primary">
             <mat-icon aria-label="Login key icon" fontIcon="key"></mat-icon>
             Login
-          </button>
+          </button>  
     </form>
 </div>

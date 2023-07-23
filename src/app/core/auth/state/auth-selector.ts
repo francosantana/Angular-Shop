@@ -7,3 +7,8 @@ export const selectUser = createSelector(
     selectAuth,
     (auth) => auth.user
 )
+
+export const selectError = createSelector(
+    selectAuth,
+    (auth) => auth.error
+)

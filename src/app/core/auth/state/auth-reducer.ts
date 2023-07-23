@@ -6,10 +6,12 @@ import { AuthState } from "../models/auth-model"
 
 
 export const initialState: AuthState  = {
-    user: null
+    user: null,
+    error: null
 }
 
 export const authReducer = createReducer(
     initialState,
-    on(AuthActions.updateUserAction, (state, {user}) => ({...state, user})),
+    on(AuthActions.updateUserAction, (state, {user}) => ({...state, user, error: null})),
+    on(AuthActions.updateErrorAction, (state, {error}) => ({...state, error})),
 )
