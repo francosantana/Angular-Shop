@@ -23,7 +23,7 @@ export class LoginComponent {
 
     console.log('submited')
     const { username, password} =  this.form.value
-    if(!username || !password) return
+    if(!username || !password || this.form.invalid) return
     
     this.state.dispatch(loginAction({username, password}))
   }
