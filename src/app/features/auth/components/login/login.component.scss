@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically centers the form */
+    height: 50vh;
+}
+
+.submit-button{
+    width: 100%;
+}
+
+.field{
+    display: block;
+}
+
+.welcome{
+    display: flex;
+    justify-content: center;
+}
