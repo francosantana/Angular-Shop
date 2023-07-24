@@ -39,7 +39,7 @@ export class AuthService {
     this.clearUser()
   }
 
-  fetchUser(id: string){
+  fetchUser(id: number){
     return this.http.get<UserData>(API_URL + `/users/${id}`)
   }
 
