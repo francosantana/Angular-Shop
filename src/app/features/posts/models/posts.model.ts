@@ -7,7 +7,7 @@ export interface Post {
     reactions: number
   }
 
-  export interface SearchResponse {
+  export interface PostsResponse {
     posts: Post[]
     total: number
     skip: number
