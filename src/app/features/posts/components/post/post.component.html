@@ -1,5 +1,11 @@
 
 <div class="post">
-    <p>{{post.title}}</p>
+    <h4>{{post.title}}</h4>
+    <div class="tag-container">
+        <ng-container *ngFor="let tag of post.tags">
+            <p  class="tag">{{tag}}</p>
+        </ng-container>
+    </div>
     <p>{{post.body}}</p>
+    <p class="reaction"><mat-icon>how_to_reg</mat-icon> {{post.reactions}} reactions </p>
 </div>

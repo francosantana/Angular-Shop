@@ -1,7 +1,33 @@
 .post{
     border: 2px solid #F5E9CF;
+
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
     max-width: 600px;
+}
+
+.post:hover{
+    border: 2px solid #4E4FEB;
+}
+
+.reaction{
+    display: flex;
+    align-items: center;
+}
+
+.reaction mat-icon{
+    margin-right: 3px;
+}
+
+.tag-container{
+    display: flex;
+}
+
+.tag{
+    margin: 3px;
+    font-size: 10px;
+    background-color: #068FFF;
+    border-radius: 10px;
+    padding: 3px;
 }
