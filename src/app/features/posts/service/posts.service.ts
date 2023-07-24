@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { tap, distinctUntilChanged } from 'rxjs';
 
-import { PostsResponse } from '../models/posts.model';
+import { PostsResponse, Post } from '../models/posts.model';
 import { environment } from 'src/environment/environment.prod';
 
 @Injectable({
@@ -41,6 +41,10 @@ export class PostsService {
     return this.http.get<PostsResponse>(environment.apiUrl + `/posts/search?q=${key}`).pipe(
       tap(response => this.search$.next(response))
     )
+  }
+
+  getPost(id: number){
+    return this.http.get<Post>(environment.apiUrl + `/posts/${id}`)
   }
 
   constructor(private http: HttpClient) { }
