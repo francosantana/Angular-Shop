@@ -1,0 +1,12 @@
+:host ::ng-deep .mdc-text-field{
+    border-radius: 10px;
+}
+
+.search-label{
+    display: flex; /* Use flexbox to create a flex container */
+    align-items: center;
+}
+
+.icon-label{
+    margin-right: 5px;
+}
