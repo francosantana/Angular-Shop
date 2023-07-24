@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AllpostsComponent } from './components/allposts/allposts.component';
+import { AllPostsComponent } from './components/allposts/allposts.component';
 import { SearchComponent } from './components/search/search.component';
 import { PostComponent } from './components/post/post.component';
-
+import { PostsRoutingModule } from './posts-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    AllpostsComponent,
+    AllPostsComponent,
     SearchComponent,
     PostComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PostsRoutingModule,
+    SharedModule
   ]
 })
 export class PostsModule { }
