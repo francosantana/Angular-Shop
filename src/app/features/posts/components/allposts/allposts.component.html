@@ -1,2 +1,10 @@
 <app-search/>
-<p>allposts works!</p>
+
+<div class="container">
+    <ng-container *ngIf="postsService.searchState$| async as postsService">
+        <ng-container *ngFor="let post of postsService.posts">
+            <app-post [post]="post"/>
+        </ng-container>
+    </ng-container>
+    
+</div>

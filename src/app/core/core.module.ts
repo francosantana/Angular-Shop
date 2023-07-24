@@ -28,7 +28,6 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     CommonModule,
     StoreModule.forRoot({auth: authReducer}),
-    StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([AuthEffects]),
     MatToolbarModule,
     MatButtonModule,
