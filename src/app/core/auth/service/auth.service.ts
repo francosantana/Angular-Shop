@@ -6,9 +6,7 @@ import { environment } from 'src/environment/environment.prod';
 
 // State managment
 import { User } from '../models/auth-model';
-import { Store } from '@ngrx/store';
-import { AuthState } from '../models/auth-model';
-import { logOutAction } from '../state/auth-actions';
+import { UserData } from '../models/user.model';
 
 const API_URL = environment.apiUrl
 
@@ -17,7 +15,7 @@ const API_URL = environment.apiUrl
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private store: Store<{auth: AuthState}>) { }
+  constructor(private http: HttpClient) { }
 
   get getUser(){
     return localStorage.getItem('jwt')
@@ -41,7 +39,9 @@ export class AuthService {
     this.clearUser()
   }
 
-  
+  fetchUser(id: string){
+    return this.http.get<UserData>(API_URL + `/users/${id}`)
+  }
 
 
 }
