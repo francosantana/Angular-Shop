@@ -1,10 +1,15 @@
 <app-search/>
 
 <div class="container">
-    <ng-container *ngIf="postsService.searchState$| async as postsService">
-        <ng-container *ngFor="let post of postsService.posts">
+    <ng-container *ngIf="postsService.searchState$| async as searchState">
+        <ng-container *ngFor="let post of searchState.posts">
             <app-post [post]="post"/>
         </ng-container>
     </ng-container>
-    
+
+    <ng-container *ngIf="postsService.posts$| async as postsState">
+        <ng-container *ngFor="let post of postsState.posts">
+            <app-post [post]="post"/>
+        </ng-container>
+    </ng-container>
 </div>

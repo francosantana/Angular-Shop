@@ -17,7 +17,7 @@ export class PostsService {
     limit: 0
   })
 
-  private posts$ = new BehaviorSubject<PostsResponse>({
+  public posts$ = new BehaviorSubject<PostsResponse>({
     posts: [],
     total: 0,
     skip: 0,
