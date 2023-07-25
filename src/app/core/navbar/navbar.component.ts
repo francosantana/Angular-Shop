@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { SidenavService } from '../sidenav/service/sidenav.service';
 
 import { Store, select } from '@ngrx/store';
@@ -14,6 +14,6 @@ import { selectUser } from '../auth/state/auth-selector';
 export class NavbarComponent {
   user$ = this.state.pipe(select(selectUser))
 
-  constructor(private state: Store<RootState>, public sidenav: SidenavService){}
+  constructor(private state: Store<RootState>, public sidenav: SidenavService, public router: Router){}
 
 }
