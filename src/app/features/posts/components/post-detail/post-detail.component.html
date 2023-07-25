@@ -1,9 +1,14 @@
 
 
 <div class="container">
-    <ng-container *ngIf="post">
-        <app-post [post]="post"></app-post>
+    <ng-container *ngIf="detailedPost else blogNotFound">
+        <app-post [user]="detailedPost.user" [post]="detailedPost.post"></app-post>
     </ng-container>
+
+    <ng-template #blogNotFound>
+        <p>Blog is not aviable : /</p>
+    </ng-template>
+    
 </div>
 
 
