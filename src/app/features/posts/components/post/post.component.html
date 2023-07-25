@@ -6,6 +6,15 @@
             <p  class="tag">{{tag}}</p>
         </ng-container>
     </div>
+
     <p>{{post.body}}</p>
-    <p class="reaction"><mat-icon>how_to_reg</mat-icon> {{post.reactions}} reactions </p>
+
+    <div class="container">
+        <p class="tag-container" *ngIf="user">
+            <mat-icon style="margin-right: 5px;">supervised_user_circle</mat-icon>
+             Created by {{user.firstName}} aka {{user.username}}
+        </p>
+    
+        <p class="reaction"><mat-icon>how_to_reg</mat-icon> {{post.reactions}} reactions </p>
+    </div>
 </div>
