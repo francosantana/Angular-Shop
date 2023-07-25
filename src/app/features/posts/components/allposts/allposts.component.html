@@ -3,7 +3,9 @@
 <div class="container">
     <ng-container *ngIf="postsService.searchState$| async as searchState">
         <ng-container *ngFor="let post of searchState.posts">
-            <app-post [post]="post"/>
+            <div (click)="goToPost(post.id)">
+                <app-post [post]="post"/>
+            </div>
         </ng-container>
     </ng-container>
 
