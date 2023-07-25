@@ -9,7 +9,9 @@
 
     <ng-container *ngIf="postsService.posts$| async as postsState">
         <ng-container *ngFor="let post of postsState.posts">
-            <app-post [post]="post"/>
+            <div (click)="goToPost(post.id)">
+                <app-post [post]="post"/>
+            </div>
         </ng-container>
     </ng-container>
 </div>
