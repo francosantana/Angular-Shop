@@ -8,7 +8,7 @@
       </button>
 
       <ng-container *ngIf="!(user$ | async)">
-        <button class="nav-buttom" mat-raised-button color="primary">
+        <button (click)="router.navigate(['/auth/login'])" class="nav-buttom" mat-raised-button color="primary">
           <mat-icon fontIcon="login"/> Log In
         </button>
       </ng-container>
