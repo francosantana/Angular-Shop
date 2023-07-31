@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit{
     this.searchInput.valueChanges.subscribe(
       value => {
         if(!value) return
-        this.postsService.searchPost(value).subscribe()
+        this.postsService.filter$.next(value)
       }
     )
   }

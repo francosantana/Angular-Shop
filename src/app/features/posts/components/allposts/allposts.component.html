@@ -1,8 +1,8 @@
 <app-search/>
 
 <div class="container">
-    <ng-container *ngIf="postsService.searchState$| async as searchState">
-        <ng-container *ngFor="let post of searchState.posts">
+    <ng-container *ngIf="postsService.filteredValues$| async as filter">
+        <ng-container *ngFor="let post of filter">
             <div (click)="goToPost(post.id)">
                 <app-post [post]="post"/>
             </div>

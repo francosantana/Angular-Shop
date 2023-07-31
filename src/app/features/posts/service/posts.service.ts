@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { tap, distinctUntilChanged } from 'rxjs';
+import { tap, distinctUntilChanged, switchMap, of } from 'rxjs';
 
 import { PostsResponse, Post } from '../models/posts.model';
 import { environment } from 'src/environment/environment.prod';
@@ -10,6 +10,22 @@ import { environment } from 'src/environment/environment.prod';
   providedIn: 'root'
 })
 export class PostsService {
+
+  filter$ = new BehaviorSubject<string>('')
+
+  filteredValues$ = this.filter$.asObservable().pipe(
+    switchMap(input =>{
+      const posts = this.posts$.value.posts.filter(
+        post => post.body.includes(input)
+      )
+      return of(posts)
+    })
+  )
+
+  getvalue(){
+    this.filteredValues$.subscribe()
+  }
+
   private search$ = new BehaviorSubject<PostsResponse>({
     posts: [],
     total: 0,
@@ -33,8 +49,7 @@ export class PostsService {
 
   getAllPosts(){
     return this.http.get<PostsResponse>(environment.apiUrl + '/posts').pipe(
-      tap(response => this.posts$.next(response))
-    )
+      tap(response => {this.posts$.next(response)}) )
   }
 
   searchPost(key: string){
