@@ -1,19 +1,20 @@
 <app-search/>
 
-<div class="container">
-    <ng-container *ngIf="postsService.filteredValues$| async as filter">
-        <ng-container *ngFor="let post of filter">
-            <div (click)="goToPost(post.id)">
-                <app-post [post]="post"/>
-            </div>
-        </ng-container>
-    </ng-container>
+<div  class="container">
 
-    <ng-container *ngIf="postsService.posts$| async as postsState">
+    <div data-test="allPostsFiltered"  *ngIf="postsService.filteredValues$| async as filter">
+            <ng-container *ngFor="let post of filter">
+                <div data-test="post-container" (click)="goToPost(post.id)">
+                    <app-post [post]="post"/>
+                </div>
+            </ng-container>
+    </div>
+    
+    <div data-test="allPosts" *ngIf="postsService.posts$| async as postsState">
         <ng-container *ngFor="let post of postsState.posts">
-            <div (click)="goToPost(post.id)">
+            <div data-test="post-container" (click)="goToPost(post.id)">
                 <app-post [post]="post"/>
             </div>
         </ng-container>
-    </ng-container>
+    </div>
 </div>
